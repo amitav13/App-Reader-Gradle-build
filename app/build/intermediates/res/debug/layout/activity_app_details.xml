@@ -47,7 +47,7 @@
 		      android:layout_width="wrap_content"
 		      android:layout_height="wrap_content"
 		      android:text="@string/favorite"/>
-  </LinearLayout>"
+  </LinearLayout>
   
   <View 
       android:layout_width="match_parent"
@@ -62,4 +62,4 @@
 	      		/>   
   </ScrollView>
   
-</LinearLayout><!-- From: file:/C:/Users/Amitav/SkyDrive/Documents/Android%20Studio%20projects/AppReader/app/src/main/res/layout/activity_app_details.xml -->
+</LinearLayout><!-- From: file:/C:/Users/Amitav/SkyDrive/Documents/AndroidStudioProjects/AppReader/app/src/main/res/layout/activity_app_details.xml -->
