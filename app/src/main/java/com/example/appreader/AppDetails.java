@@ -38,7 +38,8 @@ public class AppDetails extends Activity {
 	    public void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.activity_app_details);
-	        
+
+            getActionBar().hide();
 	        clipboard = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);	        
 	        // getting intent data
 	        Intent in = getIntent();

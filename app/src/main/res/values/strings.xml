@@ -8,5 +8,7 @@
     <string name="copy">Copy</string>
     <string name="share">Share</string>
     <string name="favorite">Save to favorites</string>
+    <string name="title_activity_fetch">Fetch</string>
+    <string name="fetch_list">Fetch list</string>
 
 </resources>

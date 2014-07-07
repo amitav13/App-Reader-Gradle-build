@@ -549,9 +549,11 @@
     <string name="app_name">AppReader</string>
     <string name="copy">Copy</string>
     <string name="favorite">Save to favorites</string>
+    <string name="fetch_list">Fetch list</string>
     <string name="hello_world">Hello world!</string>
     <string name="share">Share</string>
     <string name="title_activity_app_details">AppDetails</string>
+    <string name="title_activity_fetch">Fetch</string>
     <!-- From: file:/C:/Users/Amitav/SkyDrive/Documents/AndroidStudioProjects/AppReader/app/src/main/res/values/styles.xml -->
     <eat-comment />
 

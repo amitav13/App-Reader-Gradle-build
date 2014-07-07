@@ -7,13 +7,17 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,6 +31,7 @@ import android.widget.SimpleAdapter;
 public class MainActivity extends ListActivity {
  
     private ProgressDialog pDialog;
+    private AlertDialog aDialog;
  
     // URL to get JSON
     private static String url = "http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topgrossingapplications/sf=143441/limit=25/json";
@@ -57,9 +62,32 @@ public class MainActivity extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getActionBar().hide();
  
         appList = new ArrayList<HashMap<String, String>>();
- 
+        /*
+        aDialog = new AlertDialog.Builder(this).create();
+        aDialog.setTitle("Check connectivity");
+        aDialog.setMessage("Please make sure you are connected to the internet!");
+        aDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Retry", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if(isNetworkAvailable())
+                    aDialog.dismiss();
+                else
+                    aDialog.show();
+            }
+        });
+        aDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"Exit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                System.exit(0);
+            }
+        });
+        if(!isNetworkAvailable()){
+            aDialog.show();
+        }
+        */
         ListView lv = getListView();
         
         // Listview on item click listener
@@ -81,7 +109,7 @@ public class MainActivity extends ListActivity {
  
             }
         });
- 		
+
         // Calling async task to get json
         new GetApps().execute();
         
@@ -89,7 +117,7 @@ public class MainActivity extends ListActivity {
         db = openOrCreateDatabase(Constants.DATABASE_NAME, Context.MODE_PRIVATE, null);        
         db.execSQL(create);
     }
- 
+
     /**
      * Async task class to get json by making HTTP call
      * */
@@ -168,7 +196,7 @@ public class MainActivity extends ListActivity {
                         
                         //adding app to database if it hasn't been added already
                         cursor = db.query(Constants.TABLE_NAME, new String[] {Constants.KEY_NAME, Constants.KEY_FAVORITE}, Constants.KEY_NAME+"= '"+name+"'", null, null, null, null);
-                        if(cursor.moveToFirst()==false){
+                        if(!cursor.moveToFirst()){
 	                        values = new ContentValues();
 	                        values.put(Constants.KEY_NAME, name);
 	                        values.put(Constants.KEY_FAVORITE,0);

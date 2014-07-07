@@ -9,6 +9,7 @@
         android:targetSdkVersion="19" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -16,17 +17,24 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.appreader.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name" >
+
+        </activity>
+        <activity
+            android:name=".AppDetails"
+            android:label="@string/title_activity_app_details" >
+
+        </activity>
+        <activity
+            android:name=".Fetch"
+            android:label="@string/app_name"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name="com.example.appreader.AppDetails"
-            android:label="@string/title_activity_app_details" >
         </activity>
     </application>
 
