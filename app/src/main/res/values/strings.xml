@@ -10,5 +10,6 @@
     <string name="favorite">Save to favorites</string>
     <string name="title_activity_fetch">Fetch</string>
     <string name="fetch_list">Fetch list</string>
+    <string name="app_description">This app checks for the current top 20 grossing apps in the App Store, parses the received JSON and displays it as a list.</string>
 
 </resources>
