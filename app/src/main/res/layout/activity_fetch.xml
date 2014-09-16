@@ -26,11 +26,13 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_alignParentStart="true"
-        android:layout_toEndOf="@+id/titletext">
+        android:layout_alignParentLeft="true"
+        android:layout_toEndOf="@+id/titletext"
+        android:layout_toRightOf="@+id/titletext">
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:weight ="1"
+            android:layout_weight="1"
             />
         <Button
             android:id="@+id/fetch"
@@ -38,7 +40,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:weight="1"
+            android:layout_weight="1"
             android:text="@string/fetch_list" />
         <View
             android:layout_weight="1"

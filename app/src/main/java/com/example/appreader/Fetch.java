@@ -4,19 +4,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.appreader.R;
-
 public class Fetch extends ActionBarActivity {
 
-    private Button retry,exit;
+    private Button retry;
     private TextView titleText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +22,6 @@ public class Fetch extends ActionBarActivity {
         setContentView(R.layout.activity_fetch);
         getActionBar().hide();
         retry = (Button)findViewById(R.id.fetch);
-        exit = (Button)findViewById(R.id.exit);
         titleText = (TextView)findViewById(R.id.titletext);
         retry.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,12 +34,6 @@ public class Fetch extends ActionBarActivity {
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(i);
                 }
-            }
-        });
-        exit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                System.exit(0);
             }
         });
     }
